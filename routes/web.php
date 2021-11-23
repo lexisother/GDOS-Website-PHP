@@ -20,6 +20,12 @@ Route::get('/', function () {
     return view('main', ['users' => $users]);
 });
 
+Route::get('/user/{name}', function($name) {
+    // Find a user in the database with the given name
+    $user = \App\Models\User::where('name', $name)->first();
+    return view('user', ['user' => $user]);
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
