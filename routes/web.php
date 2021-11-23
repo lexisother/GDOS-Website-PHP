@@ -26,6 +26,7 @@ Route::get('/user/{name}', function($name) {
     return view('user', ['user' => $user]);
 });
 
+// Register the authentication routes, this is managed by `artisan ui bootstrap --auth`
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
