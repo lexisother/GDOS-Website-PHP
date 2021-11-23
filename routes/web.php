@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     // Get a list of all users and pass it to the view
     $users = \App\Models\User::all();
-    return view('welcome', ['users' => $users]);
+    return view('main', ['users' => $users]);
 });
 
 Auth::routes();
