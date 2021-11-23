@@ -1,0 +1,190 @@
+@import "normalize";
+@import "profile";
+@import "brand";
+
+@font-face {
+    font-family: "Maax Regular";
+    src: url("/fonts/maax-regular.woff2");
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff !important;
+        color: #222222 !important;
+    }
+    hr {
+        background-color: #d3d0c8 !important;
+    }
+    .entry:hover {
+        background-color: lightgrey !important;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .page-container {
+        max-width: 2048px !important;
+        padding: 0 !important;
+    }
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Maax Regular", "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+body {
+    padding: 2rem 2rem;
+    background-color: #181a1b;
+    color: #ffffff;
+}
+
+main {
+    display: block;
+}
+
+hr {
+    width: 100%;
+    height: 1px;
+    margin: 1.5rem auto;
+    border: 0;
+    background-color: #3d3d3d;
+}
+
+a {
+    color: $gilde_pink;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+        text-decoration-style: dotted;
+    }
+    &:visited {
+        color: $gilde_pink;
+        text-decoration: none;
+    }
+}
+
+.page-container {
+    max-width: 920px;
+    padding: 0 1rem 2rem;
+    margin: auto;
+
+    footer {
+        text-align: center;
+    }
+}
+
+.modal-video-movie-wrap {
+    width: 32% !important;
+}
+
+// Home {{{
+figure {
+    display: block;
+    text-align: center;
+}
+.logo {
+    text-align: center;
+}
+.mainContent {
+    text-align: center;
+}
+// }}}
+
+// Sections {{{
+.section-header {
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: $gilde_pink;
+}
+
+.section-info {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 300;
+    letter-spacing: 0.025rem;
+}
+
+.section-header + .section-info {
+    margin-top: -0.75rem;
+}
+
+.section-prelude {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+}
+
+.section-cover {
+    margin: 1rem auto;
+    width: 75%;
+}
+
+.section-misc {
+    margin: 0.15rem 0;
+    font-style: italic;
+}
+
+.section-postlude {
+    padding: 0 1rem;
+    font-size: 1.125rem;
+}
+// }}}
+
+// Lists {{{
+.entry {
+    margin: 1rem 0;
+    padding: 20px;
+
+    &:hover {
+        background-color: #3d3d3d;
+    }
+}
+.entry-name {
+    font-size: 1.15rem;
+}
+
+.entry-description {
+    margin-top: 0.25rem;
+}
+
+.entry-info {
+    margin-top: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 300;
+    letter-spacing: 0.025rem;
+}
+
+.label {
+    margin-right: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.label > * + * {
+    margin-left: 0.25rem;
+}
+// }}}
+
+// Groups {{{
+.group + .group {
+    margin-top: 1.5rem;
+}
+
+.group-header {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.025rem;
+}
+
+.group-header-line {
+    margin: 0 1rem;
+}
+// }}}
