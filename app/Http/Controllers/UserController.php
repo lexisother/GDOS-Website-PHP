@@ -9,7 +9,7 @@ use Intervention\Image\Facades\Image;
 class UserController extends Controller
 {
     public function profile() {
-        return view('profile', array('user' => Auth::user()));
+        return view('profile', ['user' => Auth::user(), 'updated' => false]);
     }
 
     public function update_avatar(Request $request) {
@@ -25,6 +25,6 @@ class UserController extends Controller
             $user->save();
         }
 
-        return view('profile', array('user' => Auth::user()) );
+        return view('profile', ['user' => Auth::user(), 'updated' => true] );
     }
 }
