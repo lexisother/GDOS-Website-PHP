@@ -16,9 +16,14 @@ class UserController extends Controller
         // Handle the user upload of avatar
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
+
+            if ($avatar->getSize() > 10000000) {
+                return abort('413');
+            }
+
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
 
-            Image::make($avatar)->resize(300, 300)->save( storage_path('app/public/uploads/avatars/' . $filename ) );
+            Image::make($avatar)->resize(300, 300)->save(storage_path('app/public/uploads/avatars/' . $filename ));
 
             $user = \App\Models\User::find(Auth::user()->id);
             $user->avatar = $filename;
