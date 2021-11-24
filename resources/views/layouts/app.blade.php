@@ -54,10 +54,14 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="/storage/uploads/avatars/{{ Auth::user()->avatar }}" style="width: 32px; height: 32px; position: abolute; border-radius: 50%;">
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profile') }}">
+                                        {{ __('Profile') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -75,7 +79,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="page-container py-4">
             @yield('content')
         </main>
     </div>

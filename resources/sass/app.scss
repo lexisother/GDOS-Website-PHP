@@ -3,6 +3,7 @@
 
 // Variables
 @import "variables";
+@import "profile";
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
@@ -12,4 +13,8 @@
 
 .card {
     color: black;
+}
+
+.dropdown-item {
+    color: #16181b;
 }

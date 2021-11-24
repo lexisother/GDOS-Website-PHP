@@ -12,6 +12,7 @@
                         even store the raw image data inside of the DB (no idea
                         how I'll end up displaying this data but as you know I
                         always find a way --}}
+                        <img src="/storage/uploads/avatars/{{ $user->avatar }}" height="110px">
                         <p class="name">{{  $user->name }}</p>
                     </div>
                     <div class="authcardContent">

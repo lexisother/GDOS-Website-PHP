@@ -52,7 +52,7 @@ hr {
     background-color: #3d3d3d;
 }
 
-a {
+a:not([class="dropdown-item"]) {
     color: $gilde_pink;
     text-decoration: none;
 

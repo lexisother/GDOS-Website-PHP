@@ -30,3 +30,6 @@ Route::get('/user/{name}', function($name) {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
+Route::post('/profile', [\App\Http\Controllers\UserController::class, 'update_avatar']);
