@@ -11,8 +11,10 @@ const mix = require("laravel-mix");
  |
  */
 
-mix
-    // .js("resources/js/app.js", "public/js")
-    .sass("resources/sass/app.scss", "public/css")
+mix.sass("resources/sass/app.scss", "public/css")
     .copyDirectory("resources/fonts", "public/fonts")
+    .copy(
+        "resources/images/default-avatar.png",
+        "storage/app/public/uploads/avatars/default-avatar.png"
+    )
     .sourceMaps();
