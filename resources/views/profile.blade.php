@@ -17,6 +17,13 @@
                 <label>Update Profile Image</label>
                 <br />
                 <input type="file" name="avatar">
+                <br />
+                <label>Select your role</label>
+                <select name="role">
+                    <option selected hidden>{{ $user->role }}</option>
+                    <option value="Software Developer">Software Developer</option>
+                    <option value="Systems and Devices">Systems and Devices</option>
+                </select>
                 <input type="submit" class="pull-right btn btn-sm btn-primary"></input>
                 </form>
         </div>
