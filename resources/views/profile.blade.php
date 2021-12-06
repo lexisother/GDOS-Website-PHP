@@ -9,23 +9,36 @@
                     Updated! Go back to the home page to see the changes.
                 </div>
             @endif
-            <img class="userAvatar" src="/storage/uploads/avatars/{{ $user->avatar }}" style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px;">
-            <h2>{{ $user->name }}'s Profile</h2>
 
-            <form enctype="multipart/form-data" action="/profile" method="POST">
-                @csrf
-                <label>Update Profile Image</label>
-                <br />
-                <input type="file" name="avatar">
-                <br />
-                <label>Select your role</label>
-                <select name="role">
-                    <option selected hidden>{{ $user->role }}</option>
-                    <option value="Software Developer">Software Developer</option>
-                    <option value="Systems and Devices">Systems and Devices</option>
-                </select>
-                <input type="submit" class="pull-right btn btn-sm btn-primary"></input>
-                </form>
+            <div class="d-flex flex-column">
+                <div class="mb-3">
+                    <img class="userAvatar" src="/storage/uploads/avatars/{{ $user->avatar }}" style="width: 150px; height: 150px; float: left; border-radius: 50%; margin-right: 25px;">
+                    <h2>{{ $user->name }}'s Profile</h2>
+                </div>
+
+                <div>
+                    {{-- Blah blah, something about "don't use <br> for spacing." --}}
+                    {{-- TODO Use proper flex items --}}
+                    <form enctype="multipart/form-data" action="/profile" method="POST">
+                        @csrf
+                        <label class="h4">Update Profile Image</label>
+                        <br />
+                        <input type="file" name="avatar">
+                        <br />
+                        <br />
+                        <label class="h4">Select your role</label>
+                        <br />
+                        <select name="role">
+                            <option selected hidden>{{ $user->role }}</option>
+                            <option value="Software Developer">Software Developer</option>
+                            <option value="Systems and Devices">Systems and Devices</option>
+                        </select>
+                        <br />
+                        <br />
+                        <input type="submit" class="pull-right btn btn-sm btn-primary"></input>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
