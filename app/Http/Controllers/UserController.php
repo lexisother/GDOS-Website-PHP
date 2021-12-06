@@ -31,8 +31,12 @@ class UserController extends Controller
             $user->avatar = $filename;
         }
 
-        if ($request->has('role')) {
-            $user->role = $request->get('role');
+        // Get every item in the request and set it.
+        foreach($request->all() as $key => $value) {
+            if (str_starts_with($key, '_')) {
+                continue;
+            }
+            $user->$key = $value;
         }
 
         // Finally, save the new data to the user model.
