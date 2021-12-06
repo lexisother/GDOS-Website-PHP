@@ -12,7 +12,10 @@ class UserController extends Controller
         return view('profile', ['user' => Auth::user(), 'updated' => false]);
     }
 
-    public function update_avatar(Request $request) {
+    public function update_user(Request $request) {
+        // Retrieve the model of the currently authenticated user.
+        $user = \App\Models\User::find(Auth::user()->id);
+
         // Handle the user upload of avatar
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
@@ -25,11 +28,16 @@ class UserController extends Controller
 
             Image::make($avatar)->resize(300, 300)->save(storage_path('app/public/uploads/avatars/' . $filename ));
 
-            $user = \App\Models\User::find(Auth::user()->id);
             $user->avatar = $filename;
-            $user->save();
         }
 
-        return view('profile', ['user' => Auth::user(), 'updated' => true] );
+        if ($request->has('role')) {
+            $user->role = $request->get('role');
+        }
+
+        // Finally, save the new data to the user model.
+        $user->save();
+
+        return view('profile', ['user' => Auth::user(), 'updated' => true]);
     }
 }
