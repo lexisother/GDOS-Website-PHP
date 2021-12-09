@@ -19,22 +19,22 @@
                 <div>
                     {{-- Blah blah, something about "don't use <br> for spacing." --}}
                     {{-- TODO Use proper flex items --}}
-                    <form enctype="multipart/form-data" action="/profile" method="POST">
+                    <form class="d-inline-flex flex-column gap-1" enctype="multipart/form-data" action="/profile" method="POST">
                         @csrf
-                        <label class="h4">Update Profile Image</label>
-                        <br />
-                        <input type="file" name="avatar">
-                        <br />
-                        <br />
-                        <label class="h4">Select your role</label>
-                        <br />
-                        <select name="role">
-                            <option selected hidden>{{ $user->role }}</option>
-                            <option value="Software Developer">Software Developer</option>
-                            <option value="Systems and Devices">Systems and Devices</option>
-                        </select>
-                        <br />
-                        <br />
+                        <div class="d-flex flex-column">
+                            <label class="h4">Update Profile Image</label>
+                            <input type="file" name="avatar">
+                        </div>
+
+                        <div class="d-flex flex-column">
+                            <label class="h4">Select your role</label>
+                            <select name="role">
+                                <option selected hidden>{{ $user->role }}</option>
+                                <option value="Software Developer">Software Developer</option>
+                                <option value="Systems and Devices">Systems and Devices</option>
+                            </select>
+                        </div>
+
                         <input type="submit" class="pull-right btn btn-sm btn-primary"></input>
                     </form>
                 </div>
