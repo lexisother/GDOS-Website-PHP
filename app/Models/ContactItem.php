@@ -17,6 +17,6 @@ class ContactItem extends Model
     protected $fillable = [
         'title',
         'description',
-        'author'
+        'author_name'
     ];
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,5 +26,17 @@ class ContactController extends Controller
     public function index()
     {
         return view('contact', ['user' => Auth::user(), 'submitted' => false]);
+    }
+
+    public function submit(Request $request) {
+        $author = Auth::user();
+
+        ContactItem::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'author_name' => $author->name
+        ]);
+
+        return view('contact', ['user' => Auth::user(), 'submitted' => true]);
     }
 }
