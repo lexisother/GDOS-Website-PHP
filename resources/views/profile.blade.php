@@ -17,8 +17,6 @@
                 </div>
 
                 <div>
-                    {{-- Blah blah, something about "don't use <br> for spacing." --}}
-                    {{-- TODO Use proper flex items --}}
                     <form class="d-inline-flex flex-column gap-1" enctype="multipart/form-data" action="/profile" method="POST">
                         @csrf
                         <div class="d-flex flex-column">
