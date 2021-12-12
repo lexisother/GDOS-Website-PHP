@@ -33,6 +33,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit']);
+Route::get('/contact/submissions', [App\Http\Controllers\ContactController::class, 'submissions']);
+Route::get('/contact/submissions/{id}', [App\Http\Controllers\ContactController::class, 'submission']);
 
 Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
 Route::post('/profile', [\App\Http\Controllers\UserController::class, 'update_user']);

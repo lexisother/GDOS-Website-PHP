@@ -25,7 +25,18 @@ class ContactController extends Controller
      */
     public function index()
     {
-        return view('contact', ['user' => Auth::user(), 'submitted' => false]);
+        return view('contact/contact', ['user' => Auth::user(), 'submitted' => false]);
+    }
+
+    public function submissions()
+    {
+        $submissions = ContactItem::all();
+        return view('contact/submissions', ['submissions' => $submissions]);
+    }
+
+    public function submission($id) {
+        $contactItem = ContactItem::where('id', $id)->first();
+        return view('contact/submission', ['submission' => $contactItem]);
     }
 
     public function submit(Request $request) {
