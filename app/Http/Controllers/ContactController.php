@@ -48,6 +48,6 @@ class ContactController extends Controller
             'author_name' => $author->name
         ]);
 
-        return view('contact', ['user' => Auth::user(), 'submitted' => true]);
+        return view('contact/contact', ['user' => Auth::user(), 'submitted' => true]);
     }
 }
