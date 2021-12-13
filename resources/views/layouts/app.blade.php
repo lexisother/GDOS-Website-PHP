@@ -38,6 +38,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('contact') }}">{{ __('Contact') }}</a>
+                        </li>
+                        <div style="border-left:thin solid grey; margin: 2px;"></div>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
