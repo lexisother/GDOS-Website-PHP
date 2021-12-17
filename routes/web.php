@@ -14,27 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // Get a list of all users and pass it to the view
-    $users = \App\Models\User::all();
-    return view('main', ['users' => $users]);
-});
-
-Route::get('/user/{name}', function($name) {
-    // Find a user in the database with the given name
-    $user = \App\Models\User::where('name', $name)->first();
-    return view('user', ['user' => $user]);
-});
+Route::get('/', 'HomeController@main');
 
 // Register the authentication routes, this is managed by `artisan ui bootstrap --auth`
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/contact', [App\Http\Controllers\ContactController::class, 'index'])->name('contact');
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit']);
-Route::get('/contact/submissions', [App\Http\Controllers\ContactController::class, 'submissions']);
-Route::get('/contact/submissions/{id}', [App\Http\Controllers\ContactController::class, 'submission']);
+Route::get('/contact', 'ContactController@index')->name('contact');
+Route::post('/contact', 'ContactController@submit');
+Route::get('/contact/submissions', 'ContactController@submissions');
+Route::get('/contact/submissions/{id}', 'ContactController@submission');
 
-Route::get('/profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile');
-Route::post('/profile', [\App\Http\Controllers\UserController::class, 'update_user']);
+Route::get('/user/{name}', 'UserController@user')->name('user');
+Route::get('/profile', 'UserController@profile')->name('profile');
+Route::post('/profile', 'UserController@update_user');

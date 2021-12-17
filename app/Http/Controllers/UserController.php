@@ -8,6 +8,12 @@ use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
+    public function user($name) {
+        // Find a user in the database with the given name
+        $user = \App\Models\User::where('name', $name)->first();
+        return view('user', ['user' => $user]);
+    }
+
     public function profile() {
         return view('profile', ['user' => Auth::user(), 'updated' => false]);
     }

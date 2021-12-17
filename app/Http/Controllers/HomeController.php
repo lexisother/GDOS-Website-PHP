@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,17 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * Show the main page.
+     *
+     * @retuen \Illuminate\Contracts\Support\Renderable
+     */
+    public function main()
+    {
+        $users = User::all();
+        return view('main', ['users' => $users]);
     }
 
     /**
