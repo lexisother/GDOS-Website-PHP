@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contact', 'ContactController@index')->name('contact');
 Route::post('/contact', 'ContactController@submit');
-Route::get('/contact/submissions', 'ContactController@submissions');
+Route::get('/contact/submissions', 'ContactController@submissions')->name('submissions');
 Route::get('/contact/submissions/{id}', 'ContactController@submission');
 
 Route::get('/user/{name}', 'UserController@user')->name('user');
