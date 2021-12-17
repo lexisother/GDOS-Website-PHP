@@ -34,7 +34,10 @@ class UserController extends Controller
 
             Image::make($avatar)->resize(300, 300)->save(storage_path('app/public/uploads/avatars/' . $filename ));
 
+            // For some reason, we need an extra invocation of `save` here
+            // because Laravel doesn't want to keep our changes
             $user->avatar = $filename;
+            $user->save();
         }
 
         // Get every item in the request and set it.
