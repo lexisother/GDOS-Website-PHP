@@ -10,7 +10,6 @@
         @endif
     @endauth
     <div class="authcards">
-        {{-- TODO Component-ify this!!! IMPORTANT!!! --}}
         @foreach ($users as $user)
             @card(['user' => $user])
             @endcard

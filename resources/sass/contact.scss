@@ -1,0 +1,26 @@
+.contact-table {
+  width: 100%;
+
+    th, td {
+        width: 25%;
+    }
+}
+
+.contact-table {
+  width: 100%;
+  border: 1px solid #000;
+
+  .title, .description {
+      overflow: hidden !important;
+      max-width: 10ch !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+  }
+
+  th, td {
+    width: 25%;
+    text-align: left;
+    vertical-align: top;
+    border: 1px solid #000;
+  }
+}

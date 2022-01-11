@@ -4,17 +4,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <table>
+            <table class="contact-table">
                 <tr>
+                    <td>ID</td>
                     <td>Title</td>
                     <td>Description</td>
                     <td>Author Name</td>
                     <td>Created At</td>
                 </tr>
+
                 @foreach($submissions as $submission)
                     <tr>
-                        <td>{{ $submission->title }}</td>
-                        <td>{{ $submission->description }}</td>
+                        <td>{{ $submission->id }}</td>
+                        <td class="title">{{ $submission->title }}</td>
+                        <td class="description">{{ $submission->description }}</td>
                         <td>{{ $submission->author_name }}</td>
                         <td>{{ $submission->created_at }}</td>
                     </tr>
