@@ -16,7 +16,7 @@
                 @foreach($submissions as $submission)
                     <tr>
                         <td>{{ $submission->id }}</td>
-                        <td class="title">{{ $submission->title }}</td>
+                        <td class="title"><a href="/contact/submissions/{{ $submission->id }}">{{ $submission->title }}</a></td>
                         <td class="description">{{ $submission->description }}</td>
                         <td>{{ $submission->author_name }}</td>
                         <td>{{ $submission->created_at }}</td>
