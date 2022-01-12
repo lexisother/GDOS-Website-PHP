@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactItem;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,12 +35,15 @@ class ContactController extends Controller
         return view('contact/submissions', ['submissions' => $submissions]);
     }
 
-    public function submission($id) {
+    public function submission($id)
+    {
         $contactItem = ContactItem::where('id', $id)->first();
-        return view('contact/submission', ['submission' => $contactItem]);
+        $author = User::where('name', $contactItem->author_name)->first();
+        return view('contact/submission', ['submission' => $contactItem, 'author' => $author]);
     }
 
-    public function submit(Request $request) {
+    public function submit(Request $request)
+    {
         $author = Auth::user();
 
         ContactItem::create([
