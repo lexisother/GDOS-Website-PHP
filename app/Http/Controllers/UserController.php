@@ -8,17 +8,20 @@ use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
-    public function user($name) {
+    public function user($name)
+    {
         // Find a user in the database with the given name
         $user = \App\Models\User::where('name', $name)->first();
         return view('user', ['user' => $user]);
     }
 
-    public function profile() {
+    public function profile()
+    {
         return view('profile', ['user' => Auth::user(), 'updated' => false]);
     }
 
-    public function update_user(Request $request) {
+    public function update_user(Request $request)
+    {
         // Retrieve the model of the currently authenticated user.
         $user = \App\Models\User::find(Auth::user()->id);
 
@@ -32,21 +35,22 @@ class UserController extends Controller
 
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
 
-            Image::make($avatar)->resize(300, 300)->save(storage_path('app/public/uploads/avatars/' . $filename ));
+            Image::make($avatar)->resize(300, 300)->save(storage_path('app/public/uploads/avatars/' . $filename));
 
             // For some reason, we need an extra invocation of `save` here
             // because Laravel doesn't want to keep our changes
             $user->avatar = $filename;
             $user->save();
+        } else {
+            // Get every item in the request and set it.
+            foreach ($request->all() as $key => $value) {
+                if (str_starts_with($key, '_')) {
+                    continue;
+                }
+                $user->$key = $value;
+            }
         }
 
-        // Get every item in the request and set it.
-        foreach($request->all() as $key => $value) {
-            if (str_starts_with($key, '_')) {
-                continue;
-            }
-            $user->$key = $value;
-        }
 
         // Finally, save the new data to the user model.
         $user->save();
