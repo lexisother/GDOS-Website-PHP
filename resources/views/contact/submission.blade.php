@@ -25,7 +25,7 @@
             @endmetaitem
 
             {{-- Assignees currently are not implemented (at all, they do not
-            even exist on the model), but perhaps it is something to consider in
+            even exist on the ContactItem model), but perhaps it is something to consider in
             the future
             {issue.assignee ? (
                 <MetaItem

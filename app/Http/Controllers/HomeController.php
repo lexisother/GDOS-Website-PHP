@@ -20,7 +20,7 @@ class HomeController extends Controller
     /**
      * Show the main page.
      *
-     * @retuen \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function main()
     {

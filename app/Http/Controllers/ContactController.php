@@ -29,12 +29,24 @@ class ContactController extends Controller
         return view('contact/contact', ['user' => Auth::user(), 'submitted' => false]);
     }
 
+    /**
+     * Show a table of all contact form items.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function submissions()
     {
         $submissions = ContactItem::all();
         return view('contact/submissions', ['submissions' => $submissions]);
     }
 
+    /**
+     * Show a specific contact form item.
+     *
+     * @param int $id The ID of the contact form item to show.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function submission($id)
     {
         $contactItem = ContactItem::where('id', $id)->first();
@@ -42,6 +54,13 @@ class ContactController extends Controller
         return view('contact/submission', ['submission' => $contactItem, 'author' => $author]);
     }
 
+    /**
+     * Submit a contact form item.
+     *
+     * @param Request $request The request object.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function submit(Request $request)
     {
         $author = Auth::user();
