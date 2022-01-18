@@ -1,4 +1,5 @@
 /node_modules
+/docs/**/*.html
 /public/hot
 /public/storage
 /public/**/*
