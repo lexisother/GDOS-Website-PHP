@@ -13,6 +13,7 @@ const mix = require("laravel-mix");
 
 mix.sass("resources/sass/app.scss", "public/css")
     .copyDirectory("resources/fonts", "public/fonts")
+    .copyDirectory("resources/static", "public/static")
     .copy(
         "resources/images/default-avatar.png",
         "storage/app/public/uploads/avatars/default-avatar.png"
